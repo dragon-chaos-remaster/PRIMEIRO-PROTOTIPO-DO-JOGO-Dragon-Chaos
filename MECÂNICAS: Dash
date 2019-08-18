@@ -9,11 +9,12 @@ public class DashMechanic : MonoBehaviour {
     private float dash_tempo;
     private float startDash = 0.1f;
     private int direcao;
-   
+    private int numberofDashes;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dash_tempo = startDash;
+        numberofDashes = 5;
         
     }
 
@@ -24,25 +25,37 @@ public class DashMechanic : MonoBehaviour {
 		if(direcao == 0)
         {
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) && numberofDashes != 0)
             {
-               if(Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Fire1"))
+                {
                     direcao = 1;
+                    numberofDashes--;
+                }
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) && numberofDashes != 0)
             {
                 if (Input.GetButtonDown("Fire1"))
+                {
                     direcao = 2;
+                    numberofDashes--;
+                }
             }
-            else if (Input.GetKey(KeyCode.W))
+            else if (Input.GetKey(KeyCode.W) && numberofDashes != 0)
             {
                 if (Input.GetButtonDown("Fire1"))
+                {
                     direcao = 3;
+                    numberofDashes--;
+                }
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S) && numberofDashes != 0)
             {
                 if (Input.GetButtonDown("Fire1"))
+                {
                     direcao = 4;
+                    numberofDashes--;
+                }
             }
 
         }
